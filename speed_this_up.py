@@ -9,8 +9,6 @@ of the csv file and outputs the transformed data to a new csv file.
 import argparse
 import pandas as pd
 import sys 
-import time 
-
 
 def myfunc1(df):
     # Initialize an empty DataFrame with the required columns
@@ -68,20 +66,12 @@ def main():
     df = pd.read_csv(input_file)
 
     # Time the process_rows_loop function
-    start_time = time.time()
     output1 = myfunc1(df)
     output1.to_csv('output1.csv', index=False)
-    end_time = time.time()
-    myfunc1_duration = end_time - start_time
-    print(f'myfunc1 took {myfunc1_duration:.4f} seconds')
 
     # Time the myfunc2 function
-    start_time = time.time()
     output2 = myfunc2(df)
     output2.to_csv('output2.csv', index=False)
-    end_time = time.time()
-    myfunc2_duration = end_time - start_time
-    print(f'myfunc2 took {myfunc2_duration:.4f} seconds')
 
 if __name__ == "__main__":
     main()
